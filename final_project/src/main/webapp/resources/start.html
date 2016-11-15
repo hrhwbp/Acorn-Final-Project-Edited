@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8>
+<body>
+  <p><input type=file id="file"></p>
+  <img alt="" src="/image/logo.png" id="images">
+<script>
+var upload = document.getElementById('file'),
+ 	images = document.getElementById('images');
+ 	alert(upload)
+upload.onchange = function (e) {
+  e.preventDefault();
+  var file = upload.files[0],
+      reader = new FileReader();
+  reader.onload = function (event) {
+    images.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+};
+</script>
+</body>
+</html>
